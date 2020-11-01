@@ -1,5 +1,5 @@
 # trombinoscop
- pour ce projet nous allons choisir de faire trombinoscope pour la Ligue Française du handball.
+ pour ce projet nous allons choisi de faire trombinoscope pour la Ligue Française du handball.
 
 Ce trombinoscope consiste  a présenter tous les joueurs de tout les ligue de handball en france .
 et l'objectif de ce trombinoscope c'est de  permettre au monde entier de mieux connaitre les joueurs. 
