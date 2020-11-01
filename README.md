@@ -1,12 +1,13 @@
 # trombinoscop
- pour ce projet nous allons choisi de faire trombinoscope pour la Ligue Française du handball.
+ pour ce projet nous allons choisir de faire trombinoscope pour la Ligue Française du handball.
 
 Ce trombinoscope consiste  a présenter tous les joueurs de tout les ligue de handball en france .
-et le objectif de ce trombinoscope c'est de  permettra au monde entiers de mieux connaitre les joueurs. 
+et l'objectif de ce trombinoscope c'est de  permettre au monde entier de mieux connaitre les joueurs. 
 
 
 Modèle du trombinoscope:
-le modele que nous allons choisi est  le modele de la grille (Trombinoscope grille)  
+
+le modele que nous avons choisi est le modele de la grille (Trombinoscope grille)  
 
 Représentation du joueur:
 
@@ -35,17 +36,17 @@ critères de filtrage:
 
 filtrage de la liste des joueurs:
 
-                                 selon l'équipe : afficage des joueurs de chaque equipe choisi.
+                                 selon l'équipe : affichage des joueurs de chaque equipe choisi.
 
                                  selon la division : afficher les joueurs de chaque division .
 
-                                 selon la nationnalité : afficher la liste des joueurs selon la nationnalité choisi.
+                                 selon la nationalité : afficher la liste des joueurs selon la nationalité choisi.
 
-                                 selon leur poste  : afficher la liste des joueurs selon un poste  choisi.
+                                 selon leur poste  : afficher la liste des joueurs selon un poste choisi.
 
                                  selon l'âge : afficher  des joueurs ayant l'âge saisi.
 
-                                 selon le nom : afficher la liste des joueurs portant le nom saisi.
+                                 selon le nom : afficher la liste des joueurs portant le nom saisis.
 
 
 filtrage des statistiques selon:
