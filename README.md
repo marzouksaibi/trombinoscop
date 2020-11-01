@@ -11,7 +11,7 @@ le modele que nous avons choisi est le modele de la grille (Trombinoscope grille
 
 Représentation du joueur:
 
-photo
+photo 
 nom,prénom
 division
 équipe
@@ -52,5 +52,5 @@ filtrage de la liste des joueurs:
 filtrage des statistiques selon:
                                       -l'équipe 
                                       -la division 
-
+le lien vers le google spreadsheet  de notre projet est: https://docs.google.com/spreadsheets/d/1Ja4LzZTzg65VJ7uq09RGs0_UnqC7V8BwReqckgVn6uE/edit?usp=sharing
  
