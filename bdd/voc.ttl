@@ -1,0 +1,60 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix o: <http://omeka.org/s/vocabs/o#> .
+@prefix teach: <http://linkedscience.org/teach/ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix schema: <http://schema.org/> .
+@prefix omeka: <https://liguehandball.fr/omeka> .
+@prefix /ns/ui#size: <http://www.w3.org> .
+@prefix qb4olap.ttl#LevelAttribute: <http://> .
+
+<https://liguehandball.fr/omeka> a owl:Ontology ;
+    dcterms:title "Equipe joueur" .
+
+
+omeka:Joueur a rdfs:Class ;
+    rdfs:label "Joueur" ;
+    rdfs:domain o:Resource ;
+    vs:term_status "experimental" .
+
+omeka:Equipe a rdfs:Class ;
+    rdfs:label "Equipe" ;
+    rdfs:domain o:Resource ;
+    vs:term_status "experimental" .
+
+omeka:Poste a rdfs:Class ;
+    rdfs:label "Poste" ;
+    rdfs:domain o:Resource ;
+    vs:term_status "experimental" .
+
+
+omeka:division a rdfs:Class ;
+    rdfs:label "division" ;
+    rdfs:domain o:Resource ;
+    vs:term_status "experimental" .
+
+omeka:maillot a rdfs:Class ;
+    rdfs:label "maillot" ;
+    rdfs:domain o:Resource ;
+    vs:term_status "experimental" .
+
+
+omeka:age a rdf:Property ;
+    rdfs:label "age" ;
+    rdfs:domain o:Resource ;
+    rdfs:isDefinedBy omeka: .
+
+omeka:couleur a rdf:Property ;
+    rdfs:label "couleur" ;
+    rdfs:domain o:Resource ;
+    rdfs:isDefinedBy omeka: .
+	
+omeka:nationalité a rdf:Property ;
+    rdfs:label "nationalité" ;
+    rdfs:domain o:Resource ;
+    rdfs:isDefinedBy omeka: .
+	
+
