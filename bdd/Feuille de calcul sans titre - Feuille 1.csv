@@ -1,6 +1,0 @@
-table,Colonnes,liens LOD
-joueure,"id, nom, prenom,age,phot-url,nationalité","joueur/equipe, joueur/poste"
-equipe,"id, nomEQUIPE","equipe/division , equipe/joueur"
-poste,"id , description",poste/joueur
-maillot,"idMaillot, couleur",maillot/joueur
-division,"id, description",division/equipe
