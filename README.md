@@ -5,11 +5,11 @@ projet du groupe 7
 
 # Le lien vers la page.
 
-https://github.com/marzouk94amokrez/trombinoscop
+https://marzouk94amokrez.github.io/trombinoscop/
 
 # Le lien vers la template.
 
-https://github.com/marzouk94amokrez/trombinoscop/template
+https://marzouk94amokrez.github.io/trombinoscop/template
 
 
 
