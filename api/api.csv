@@ -1,5 +1,5 @@
 data,url
-liste de tout les items,omeka/api/items/
+liste de tous les items,omeka/api/items/
 un item,omeka/api/items/id
-liste de tout le  vocabularie,omeka/api/vocabularies
-un vocabulaire spicifique,omeka/api/vocabularies/id
+liste de tous le vocabularie,omeka/api/vocabularies
+un vocabulaire specifique,omeka/api/vocabularies/id
