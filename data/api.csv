@@ -1,4 +1,4 @@
-titre,url
+data,url
 liste de tous les items,omeka/api/items/
 un item,omeka/api/items/id
 liste de tous le vocabularie,omeka/api/vocabularies
