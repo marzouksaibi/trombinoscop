@@ -1,3 +1,19 @@
+
+# trombinoscop
+
+projet du groupe 7
+
+#Le lien vers la page.
+
+https://github.com/marzouk94amokrez/trombinoscop
+
+#Le lien vers la template.
+
+
+
+
+
+
 # trombinoscop
  pour ce projet nous allons choisi de faire trombinoscope pour la Ligue Française du handball.
 
