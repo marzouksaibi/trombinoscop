@@ -14,7 +14,7 @@ https://github.com/marzouk94amokrez/trombinoscop
 
 
 
-# trombinoscop
+# Contexte général du projet.
  pour ce projet nous allons choisi de faire trombinoscope pour la Ligue Française du handball.
 
 Ce trombinoscope consiste  a présenter tous les joueurs de tout les ligue de handball en france .
