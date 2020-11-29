@@ -109,11 +109,11 @@
 
 
   <div class="container">
-    <h4 style="text-align: center;">Trombinoscope handball</h4>
+    <h4 style="text-align: center;">Trombinoscope Etudiants</h4>
 
-    <div class="row mt-12" style="background-color: #e8bd3d;">
-      <div class="col-3">
-        <h6 style="float:left">Recherche par nom de jouers:</h6>
+    <div class="row mt-5" style="background-color: lightgrey;">
+      <div class="col-4">
+        <h6 style="float:left">Recherche par nom:</h6>
         <div class="input-group">
 
           <input type="text" class="form-control" placeholder="Recherche par nom" name="search" id="searchByName">
@@ -123,40 +123,19 @@
           </div>
         </div>
       </div>
-	  
-	  
-      <div class="col-3">
-	          
-			  <h6 style="float:left">Recherche par equipe:</h6>
-			  
-        <div class="input-group">
-
-          <input type="text" class="form-control" placeholder="Recherche par equipe" name="search2" id="searchByequipe">
-          <div class="input-group-btn">
-            <button class="btn btn-primary fa fa-search" onClick="RechercheByequip()">
-            </button>
-          </div>
-        </div>
-
-	  </div>
-	  
-	  
-      <div class="col-3">
-	  
-	  
-                         <div  style="text-align: center; float:right;">
-        <h6 style="float:left">Recherche par age:</h6>
-        <select class="custom-select" id="selectParcours" onchange="RechercheByAGE()">
+      <div class="col-4"></div>
+      <div class="col-4" style="text-align: center; float:right;">
+        <h6 style="float:left">Recherche par numéro etudiant:</h6>
+        <select class="custom-select" id="selectParcours" onchange="RechercheByStudentNumber()">
           <option value=""></option>
         </select>
 
       </div>
 
-   </div>
-    
+
 
     </div>
-  </div>
+
   </div>
 
   <div id="tabFacet" role="tablist"> </div>
@@ -179,9 +158,8 @@
   </div>
 
   <script>
-    function RechercheByAGE() {
-	
-      //document.getElementById("searchByName").value = "";
+    function RechercheByStudentNumber() {
+      document.getElementById("searchByName").value = "";
       var x = document.getElementById("selectParcours").value;
       localStorage.setItem("selectedParcours", x);
       if (x == "") {
@@ -191,7 +169,7 @@
       }
       dataForm = csv_data[0];
 
-      new_data = dataForm.filter(function (d) { return d["foaf:age"][0]["@value"] == x; });
+      new_data = dataForm.filter(function (d) { return d["vocabulaire:voc.ttlstudent_number"][0]["@value"] == x; });
 
       setData(new_data, true);
 
@@ -216,37 +194,11 @@
       }
       dataForm = csv_data[0];
       console.log(csv_data);
-      new_data = dataForm.filter(function (d) { return d["foaf:firstName"][0]["@value"].toLowerCase() + " " + d["foaf:familyName"][0]["@value"].toLowerCase() == name.toLowerCase(); });
+      new_data = dataForm.filter(function (d) { return d["foaf:firstName"][0]["@value"].toLowerCase() + " " + d["foaf:family_name"][0]["@value"].toLowerCase() == name.toLowerCase(); });
       console.log(new_data);
       setData(new_data, true);
 
     }
-	
-	function RechercheByequip() {
-      displaySpinners();
-      localStorage.clear();
-      var name = document.getElementById('searchByequipe').value;
-      console.log(name);
-      if (name == "") {
-        setData(csv_data, false);
-
-        return;
-      }
-      dataForm = csv_data[0];
-      console.log(csv_data);
-      new_data = dataForm.filter(function (d) { return d["dcterms:contributor"][0]["display_title"] == name.toLowerCase(); });
-      console.log(new_data);                                        
-      setData(new_data, true);
-
-    }
-	
-	
-	
-	
-
-	
-	
-	
     var parcours;
     var dataPhoto, dataForm, dataFacet = [], dataDoublons = {};
 
@@ -282,22 +234,27 @@
       console.log(dataForm);
       let dataEtu = [];
 
+      //réorganise les datas
       dataForm.forEach(function (d, j) {
-        console.log("d = " + d["foaf:firstName"][0]["@value"]);
+        console.log("d = " + d["vocabulaire:voc.ttlstudent_number"][0]["@value"]);
         d.reponses = { 'studentNumber': [] };
-        
-        //le cercle de la recherche za3ma 
-        let quest = "les jouers";
-        //je remplie la liste par les age des jouers
-        let prop = d["foaf:age"][0]["@value"];
-        let v = 'studentNumbe';
-       if (quest) {
+        //  for (let i in d) {
+        //compilation des facettes
+        // console.log("i = "+i);
+        //let quest = i.indexOf("[") > 0 ? vals[i.substring(0, i.indexOf("[")-1)] : vals[i]; 
+        let quest = "Num etudiant";
+        //let prop = i.substring(i.indexOf("[")+1,i.indexOf("]")); 
+        let prop = d["vocabulaire:voc.ttlstudent_number"][0]["@value"];
+        let v = 'studentNumber';
+        // let n = vals[v];
+
+        if (quest) {
           if (dataDoublons[quest] === undefined) {
             dataDoublons[quest] = dataFacet.length;
             dataFacet.push({ 'label': quest, 'values': [] });
-         
+            // console.log(dataFacet);
           }
-        
+          //  let rep = prop ? prop : v;
           let rep = prop ? prop : '';
           let kRep = quest + '_' + rep;
           if (dataDoublons[kRep] === undefined) {
@@ -309,17 +266,17 @@
               , 'ids': []
             });
           }
+          dataFacet[dataDoublons[quest]]['values'][dataDoublons[kRep]]['ids'].push(j);
+          dataFacet[dataDoublons[quest]]['values'][dataDoublons[kRep]]['importance'] += 1;
+
         }
-       
+        // console.log("i = "+prop);
+        // if(i.indexOf("studentNumber")>0){
         d.reponses.studentNumber.push({ 'prop': prop, 'importance': 1, 'expression': v, 'id': j });
-        
+        //d.reponses.push({'besoins':prop,'val':n,'lib':v});
+        //}                         
+        //  }
       });
-	  
-	  
-	  
-	  
-	  
-	  
       hideSpinners();
       let html = '<div class="container"><div class="row">';
       html += '<div id="tabFacetContent__Col1" class="col-sm" style="width:200px;margin:auto;"></div>';
@@ -357,7 +314,7 @@
         .attr('class', 'card-img-top')
         .attr('src', function (d) {
 
-          //let url = new URL(d["foaf:img"][0]["@value"]);
+          // let url = new URL(d['Votre photo']);
           //let urlParam = new URLSearchParams(url.search);
           //let id = urlParam.get('id');
 
@@ -371,16 +328,36 @@
       cardBody.append('h4').attr('class', 'card-title')
         .text(function (d) {
 
-          return d["foaf:firstName"][0]["@value"].toLowerCase() + ' ' + d["foaf:familyName"][0]["@value"] + ' ' +d["dcterms:contributor"][0]["display_title"];
+          return d["foaf:firstName"][0]["@value"].toLowerCase() + ' ' + d["foaf:family_name"][0]["@value"];
         });
 
-      
+      cardBody.append('h6').text(d => d['Dans quel parcours êtes vous inscris ?']);
 
 
-      
+      //construction du layout pour les graphiques
+      html = '<div class="container-fluid"><div class="row" style="text-align: center;">';
+      html += '<div id="etudNum__Col1" class="col-12" style="padding-right:0px;padding-left:0px;"></div>';
+      // html += '<div id="etudNum__Col2" class="col-4" style="padding-right:0px;padding-left:0px;"></div>';
+      //html += '<div id="etudNum__Col3" class="col-4" style="padding-right:0px;padding-left:0px;"></div>';
+      html += '</div></div>';
+      cardBody.append('div').attr('class', 'card-text').attr('id', function (d, i) { return 'etudNum_' + i; })
+        .html(function (d, i) { return html.replace(/__/gi, "_" + i + "_"); });
+      cards.append('div').attr('class', 'card-footer')
+        .append('small').attr('class', 'text-muted')
+
+
+        .text(function (d, i) {
+          //charge le graph des réponses
+          var size = 120;
+          //drawGraphReponse("#etudNum_" + i + "_Col1", 'studentNumbers occupés', d.reponses.studentNumber, size);
+          // drawGraphReponse("#etudNum_"+i+"_Col2", 'Compétences', d.reponses.competences, size);
+          //drawGraphReponse("#etudNum_"+i+"_Col3", 'Outils', d.reponses.outils, size);
+          return d["vocabulaire:voc.ttlstudent_number"][0]["@value"].toLowerCase();
+        });
+
       if (donneeFiltree == false) {
         parcours = dataFacet[0];
-        console.log("age = " + parcours);
+        console.log("parcours = " + parcours);
       }
       var selectParcours = document.getElementById("selectParcours");
 
